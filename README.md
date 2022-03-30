@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+  <!-- hiểu về only  -->
+  <!-- strong pra -->
+  <!-- luồng hoạt động -->
+  <!-- router -->
+  <!-- dispatch -->
+  
