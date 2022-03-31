@@ -1,6 +1,6 @@
 User.create!(
-    name: "thovan",
-    email:"vanquytho@gmail.com",
+    name: "minhtien",
+    email:"minhtientran@gmail.com",
     password: "123123",
     password_confirmation: "123123",
     admin: true,
