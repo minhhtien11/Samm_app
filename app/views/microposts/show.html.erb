@@ -1,0 +1,50 @@
+
+<li id="@micropost-<%= @micropost.id %>">
+<%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+<span class="user"><%= link_to @micropost.user.name, @micropost.user %></span><br/>
+<span class="content">
+    <%= @micropost.content %>
+<%= image_tag @micropost.picture.url if @micropost.picture? %>
+</span>
+<span class="timestamp">
+<br/>
+Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+</span>
+</li>
+<br/>
+<br/>
+<br/>
+<% @micropost.comments.each do |comment| %>
+  <p>
+    <strong><%= @micropost.user.name %>:</strong>
+    <%= comment.commenter %>
+    
+  </p>
+
+  <p>
+    <strong>Comment:</strong>   
+    <%= comment.body %> 
+  </p>
+  <p>
+  <%= button_to "Delete Comment",[comment.micropost, comment], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+</p>
+  <hr/>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with model: [ @micropost, @micropost.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

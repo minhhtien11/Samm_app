@@ -13,5 +13,7 @@ Posted <%= time_ago_in_words(micropost.created_at) %> ago.
                     turbo_confirm: "Are you sure?"
                   } %>  
 <% end %>
+<%=link_to "Comment",micropost%>
+ <%= link_to 'reply',micropost%>
 </span>
 </li>
